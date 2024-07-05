@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: oommoo-deployment
+            labels:
+              app: oommoo-frontend-app
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app: oommoo-frontend-app
+            template:
+              metadata:
+                labels:
+                  app: oommoo-frontend-app
+              spec:
+                containers:
+                  - name: oommoo-server-container
+                    image: oommooxyz/oommoo-frontend-app
+                    ports:
+                      - containerPort: 80
